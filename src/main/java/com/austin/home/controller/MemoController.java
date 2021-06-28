@@ -1,7 +1,9 @@
 package com.austin.home.controller;
 
 import com.austin.home.model.Memo;
+import com.austin.home.model.User;
 import com.austin.home.repository.MemoRepository;
+import com.austin.home.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
@@ -23,9 +25,13 @@ public class MemoController {
     @Autowired
     private MemoRepository memoRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/list")
     public String list(Model model) {
         List<Memo> memos = memoRepository.findAll();
+        List<User> users = userRepository.findAll();
         model.addAttribute("memos",memos);
         return "memo/list";
     }

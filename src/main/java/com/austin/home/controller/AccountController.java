@@ -31,6 +31,11 @@ public class AccountController {
     @PostMapping("/register")
     public String register(User user) {
         userService.save(user);
-        return "redirect:/";
+        return "redirect:/account/login";
     }
+
+    @GetMapping("/logout")
+    public String logout() { return "account/login"; }
+
+
 }

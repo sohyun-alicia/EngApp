@@ -23,12 +23,14 @@
       </thead>
       <tbody>
       <tr th:each="board : ${boards}">
+
         <th th:text="${board.id}">Mark</th>
         <td><a th:text="${board.title}" th:href="@{/board/form(id=${board.id})}">Otto</a></td>
 <!--        <td th:each="board : ${boards}" th:text="${board.writer}"></td>-->
         <td><a th:text="${board.writer}">Otto</a></td>
         <td><a th:text="${#dates.format(board.datetime, 'yyyy-MM-dd')}">Otto</a></td>
 
+      </tr>
 
       </tr>
       </tbody>

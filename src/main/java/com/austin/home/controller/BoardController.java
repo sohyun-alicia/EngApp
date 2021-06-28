@@ -22,10 +22,15 @@ public class BoardController {
     @Autowired
     private BoardRepository boardRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping("/list")
     public String list(Model model) {
         List<Board> boards = boardRepository.findAll();
+        List<User> users = userRepository.findAll();
         model.addAttribute("boards",boards);
+        model.addAttribute("users",users);
         return "board/list";
     }
 

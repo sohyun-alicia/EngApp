@@ -1,7 +1,7 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="fragment/common :: head('Study Source')"></head>
+<head th:replace="fragment/common :: head('Welcome')"></head>
 
 <body>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:replace="fragment/common :: menu"></nav>
@@ -38,10 +38,10 @@
                 </div>
 
                 <div class="col-sm-7">
-                    <label for="memo">Memo</label>
-                    <textarea class="form-control" id="memo" rows="3" th:field="*{memo}"
-                              th:classappend="${#fields.hasErrors('memo')} ? 'is-invalid'" placeholder="ex) I couldn’t distinguish anything in the darkness."></textarea>
-                    <div class="invalid-feedback" th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">
+                    <label for="example">Example</label>
+                    <textarea class="form-control" id="example" rows="3" th:field="*{example}"
+                              th:classappend="${#fields.hasErrors('example')} ? 'is-invalid'" placeholder="ex) I couldn’t distinguish anything in the darkness."></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('example')}" th:errors="*{example}">
                         내용 에러 메시지
                     </div>
                 </div>

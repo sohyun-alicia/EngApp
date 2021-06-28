@@ -14,7 +14,8 @@ public class Memo {
     private Long id;
     private String word;
     private String meaning;
-    private String memo;
+    private String example;
+
     @Column(insertable=false, updatable=false, columnDefinition="date default sysdate")
     private Date datetime;
 

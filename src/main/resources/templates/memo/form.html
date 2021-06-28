@@ -32,15 +32,14 @@
             </div>
 
             <div class="col-sm-7">
-                <label for="memo">Memo</label>
-                <textarea class="form-control" id="memo" rows="3" th:field="*{memo}"
-                          th:classappend="${#fields.hasErrors('memo')} ? 'is-invalid'" placeholder="ex) I couldn’t distinguish anything in the darkness."></textarea>
-                <div class="invalid-feedback" th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">
+                <label for="example">Example</label>
+                <textarea class="form-control" id="example" rows="3" th:field="*{example}"
+                          placeholder="ex) I couldn’t distinguish anything in the darkness."></textarea>
+                <div class="invalid-feedback" th:if="${#fields.hasErrors('example')}" th:errors="*{example}">
                     내용 에러 메시지
                 </div>
             </div>
             </div>
-
 
 
             <p></p>
