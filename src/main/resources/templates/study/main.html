@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:fmt="http://java.sun.com/jsp/jstl/fmt">
+
+<head th:replace="fragment/common :: head('Study Source')"></head>
+
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4" th:replace="fragment/common :: menu"></nav>
+
+
+<main class="container">
+
+    <p style="text-align: center">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/m1Q2V2aOARw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </p>
+    <div class="bg-light p-5 rounded">
+        <h3>Let's write down what you've learned from the video.</h3>
+        <br><br>
+        <form action="#" th:action="@{/memo/form}" th:object="${memo}" method="post">
+            <input type="hidden" th:field="*{id}">
+
+            <div class="row g-3">
+                <div class="col-sm">
+                    <label for="word">English word</label>
+                    <textarea class="form-control" type="text" rows="3"
+                              th:classappend="${#fields.hasErrors('word')} ? 'is-invalid'" id="word" th:field="*{word}" placeholder="ex) distinguish"></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('word')}" th:errors="*{word}">
+                        글쓴이 에러 메시지
+                    </div>
+                </div>
+
+                <div class="col-sm">
+                    <label for="meaning">Meaning</label>
+                    <textarea class="form-control" id="meaning" rows="3" th:field="*{meaning}"
+                              th:classappend="${#fields.hasErrors('meaning')} ? 'is-invalid'" placeholder="ex) to be able to see, hear or understand something"></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('meaning')}" th:errors="*{meaning}">
+                        내용 에러 메시지
+                    </div>
+                </div>
+
+                <div class="col-sm-7">
+                    <label for="memo">Memo</label>
+                    <textarea class="form-control" id="memo" rows="3" th:field="*{memo}"
+                              th:classappend="${#fields.hasErrors('memo')} ? 'is-invalid'" placeholder="ex) I couldn’t distinguish anything in the darkness."></textarea>
+                    <div class="invalid-feedback" th:if="${#fields.hasErrors('memo')}" th:errors="*{memo}">
+                        내용 에러 메시지
+                    </div>
+                </div>
+            </div>
+
+
+
+            <p></p>
+            <div class="text-end">
+                <button type="submit" class="btn btn-success" >save</button>
+                <a type="button" class="btn btn-outline-success" th:href="@{/memo/list}">list</a>
+            </div>
+
+        </form>
+
+    </div>
+</main>
+
+
+</body>
+</html>
